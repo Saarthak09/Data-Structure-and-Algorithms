@@ -1,10 +1,10 @@
 package Stack;
 
-public class StackUsingLinkedList {
+public class StackUsingLinkedList<Item> {
     private Node head;
 
-    private static class Node{
-        String item;
+    private class Node{
+        Item item;
         Node next;
     }
 
@@ -12,8 +12,8 @@ public class StackUsingLinkedList {
             return head==null;
     }
 
-    public String pop(){
-        String item=head.item;
+    public Item pop(){
+        Item item=head.item;
         head=head.next;
         return item;
     }
@@ -21,7 +21,7 @@ public class StackUsingLinkedList {
     public void push(String item){
         Node oldHead=head;
         Node newHead = new Node();
-        newHead.item=item;
+        newHead.item= (Item) item;
         newHead.next=oldHead;
     }
 
